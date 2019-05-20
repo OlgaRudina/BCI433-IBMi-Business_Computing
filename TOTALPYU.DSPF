@@ -1,0 +1,29 @@
+000001190329     A          R TOTALS                                                                            
+000002190322     A                                  2  3'WS433A33'                                              
+000003190322     A                                  3  3'SUDOKU'                                                
+000004190322     A                                  2 22'Payroll Program Completed'                             
+000006190306     A                                  2 69DATE                                                    
+000007190306     A                                      EDTCDE(Y)                                               
+000008190306     A                                  3 69TIME                                                    
+000009190306     A                                  5 11'Rates:'                                                
+000010190306     A                                  6 18'Day Rate:'                                             
+000011190306     A                                  7 18'Afternoon Rate:'                                       
+000012190306     A                                  8 18'Night Rate:'                                           
+000013190306     A                                 10 11'Totals:'                                               
+000014190306     A                                 11 18'Regular Pay:'                                          
+000015190306     A                                 12 18'Overtime Pay'                                          
+000016190306     A                                 13 18'Company Payout:'                                       
+000017190306     A            DAYRATE   R        O  6 36REFFLD(SHIFTRATES/DAYRATE +                             
+000018190306     A                                      SENECAPAY/SHIFTRATES)                                   
+000019190306     A                                      EDTCDE(1)                                               
+000020190306     A            NIGHTRATE R        O  8 36REFFLD(SHIFTRATES/NIGHTRATE +                           
+000021190306     A                                      SENECAPAY/SHIFTRATES)                                   
+000022190306     A                                      EDTCDE(1)                                               
+000023190306     A            AFTNRATE  R        O  7 36REFFLD(SHIFTRATES/AFTNRATE +                            
+000024190306     A                                      SENECAPAY/SHIFTRATES)                                   
+000025190306     A                                      EDTCDE(1)                                               
+000027190329     A            WORKWEEK      25   O  3 22                                                        
+000028190322     A            TOTREGPAY      9  2  11 37EDTCDE(1 $)                                             
+000029190322     A            TOTOVTPAY      9  2  12 37EDTCDE(1 $)                                             
+000030190322     A            TOTWKPAY       9  2  13 37EDTCDE(1 $)                                             
+000100                                                                                                          

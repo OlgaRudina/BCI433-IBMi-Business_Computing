@@ -1,0 +1,30 @@
+000100190322     A          R TITLE
+000104190322     A                                  1 42'Display Report'
+000108190322     A          R COLHDG                    SPACEB(3)
+000115190322     A                                     4'EMPNO'
+000117190322     A                                    29'EMPNAME'
+000118190322     A                                    53'UNIONDUES'
+000119190322     A                                    69'YTDPAY'
+000120190322     A                                    82'YTDTAX'
+000133190322     A          R EMPDETAIL                 SPACEB(1)
+000134190322     A            EMPNUM    R    9  0      2REFFLD(EMPLOYEE/EMPNUM SENECAPAY/EM-
+000135190322     A                                      PLOYEE)
+000136190322     A                                      EDTWRD('   -   -   ')
+000138190322     A            EMPNAME       30        18
+000140190322     A            UNIONDUES R    5  2     55REFFLD(EMPLOYEE/UNIONDUES SENECAPAY+
+000141190322     A                                      /EMPLOYEE)
+000143190322     A                                      EDTCDE(1)
+000144190322     A            YTDPAY    R    9  2     67REFFLD(EMPLOYEE/YTDPAY SENECAPAY/EM-
+000145190322     A                                      PLOYEE)
+000146190322     A                                      EDTCDE(1)
+000149190322     A            YTDTAX    R    7  2     83 REFFLD(EMPLOYEE/YTDTAX SENECAPAY+
+000150190322     A                                       /EMPLOYEE)
+000154190322     A                                      EDTCDE(1)
+000158190322     A*%%RS+<record-sequences>
+000159190322     A*%%RS+ <sequence name="Report1">
+000160190322     A*%%RS+  <device type="printer" width="132" height="66" />
+000161190322     A*%%RS+  <record-write record-format="TITLE" />
+000162190322     A*%%RS+  <record-write record-format="COLHDG" />
+000163190322     A*%%RS+  <record-write record-format="EMPDETAIL" />
+000164190322     A*%%RS+ </sequence>
+000165190322     A*%%RS </record-sequences>
