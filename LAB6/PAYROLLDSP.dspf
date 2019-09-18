@@ -1,0 +1,38 @@
+     A          R RECORD1
+     A                                  3  2'Olga Rudina'
+     A                                  2  2USER
+     A                                  2 20'S E N E C A  Payroll  Program  Com-
+     A                                      pleted'
+     A                                  2 68DATE
+     A                                      EDTCDE(Y)
+     A                                  3 68TIME
+     A                                  5 11'Rates:'
+     A                                  6 25'Day Rate:'
+     A                                  7 25'Afternoon  Rate:'
+     A                                  8 25'Night Rate:'
+     A                                 10 11'Totals:'
+     A                                 12 25'Regular Pay:'
+     A                                 13 25'Overtime Pay:'
+     A                                 14 25'Company Payout:'
+     A            DAYRATE   R        B  6 45REFFLD(SHIFTRATES/DAYRATE +
+     A                                      SENECAPAY/SHIFTRATES)
+     A                                      EDTCDE(1)
+     A                                      DSPATR(PR)
+     A            AFTNRATE  R        B  7 45REFFLD(SHIFTRATES/AFTNRATE +
+     A                                      SENECAPAY/SHIFTRATES)
+     A                                      EDTCDE(1)
+     A                                      DSPATR(PR)
+     A            NIGHTRATE R        B  8 45REFFLD(SHIFTRATES/NIGHTRATE +
+     A                                      SENECAPAY/SHIFTRATES)
+     A                                      EDTCDE(1)
+     A                                      DSPATR(PR)
+     A            TOTREGPAY      9Y 2O 12 45
+     A                                      EDTCDE(1 $)
+     A            TOTOVTPAY      9Y 2O 13 45EDTCDE(1 $)
+     A            TOTWKPAY       9Y 2O 14 45EDTCDE(1 $)
+
+     A*%%RS+<record-sequences>
+     A*%%RS+ <sequence name="Untitled">
+     A*%%RS+  <device type="display" width="80" height="24" />
+     A*%%RS+ </sequence>
+     A*%%RS </record-sequences> 

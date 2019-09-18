@@ -1,0 +1,98 @@
+     A          R GETINFO
+     A                                  2  2'OLGA RUDINA'
+     A                                  1 72DATE
+     A                                  1  2USER
+     A                                  1 16'T R A F F I C   T I C K E T   I N -
+     A                                      F O R M A T I O N'
+     A                                  4  5'Your Demerit Point Total:'
+     A                                  5  5'Number of Traffic Tickets in last -
+     A                                      three years:'
+     A                                  7  5'Is this a new impaired conviction?-
+     A                                       ( ''Y'' or ''N'')'
+     A                                 10  5'Yearly Insurance Cost:'
+     A  10                              8  5'What impaired occurence number?'
+     A            DEMERITS       2Y 0B  4 59RANGE(0 15)
+     A  99                                  DSPATR(PR)
+     A                                      EDTCDE(Z)
+     A            NMTICKET       2Y 0B  5 59
+     A  99                                  DSPATR(PR)
+     A                                      EDTCDE(Z)
+     A            IMPARED        1   B  7 59VALUES('Y' 'N')
+     A  99                                  DSPATR(PR)
+     A            INSURANCE      7Y 2B 10 59
+     A  99                                  DSPATR(PR)
+     A                                      EDTCDE(2)
+     A  10        OCC            2Y 0B  8 59
+     A  99                                  DSPATR(PR)
+     A                                      DSPATR(PC)
+     A                                      EDTCDE(Z)
+     A          R SHOWRESULT                CA03(03 'Exit')
+     A                                      OVERLAY
+     A                                      CA06(06 'Impared Diving')
+     A                                 12  7'Demerit Points in Ontario result i-
+     A                                      n: '
+     A                                 15  7'Action by Insurance company with'
+     A  10                             18  7'Impaired Driving for a'
+     A                                 21  7'Your new insurance rate based on n-
+     A                                      umber of tickets is:'
+     A            DEMERITS       2Y 0O 12  4
+     A            RESULT1      120X  O 13  7
+     A            RESULT2       41   O 16  7
+     A  23                                  DSPATR(RI)
+     A            RESULT3      120   O 19  7
+     A            NEWRESULT      7Y 2O 22  7EDTCDE(1 $)
+     A                                 24  7'F3 - Exit'
+     A                                 15 43'tickets'
+     A            NMTICKET       2Y 0O 15 40
+     A  11                             15 54'Impaired Ticket'
+     A                                      DSPATR(UL)
+     A                                      COLOR(RED)
+     A  07                             24 21'F6 - Impaired Driving'
+     A  10                             18 44'impaired Offence results in:'
+     A  10        OCCRN         13   O 18 30
+     A          R IMPDETAIL
+     A                                  3  1'First offence:'
+     A                                  4 10'3-day licence suspension. This can-
+     A                                      not be appealed.'
+     A                                  5 10'$250 penalty (begins January 2019)'
+     A                                  7  1'Second offence within 5 years'
+     A                                  8  8'7-day licence suspension (3-day su-
+     A                                      spension for commercial drivers). '
+     A                                  9  8' $350 penalty (begins January 2019-
+     A                                      )'
+     A                                 10  8'You must attend a mandatory educat-
+     A                                      ion program'
+     A                                 12  2'Third and subsequent offences with-
+     A                                      in 5 years'
+     A                                 13  8'30-day licence suspension (3-day s-
+     A                                      uspension for commercial drivers).'
+     A                                  1 16'Detailed Impaired Driving Informat-
+     A                                      ion'
+     A                                 14  8'$450 penalty (begins January 2019)'
+     A                                 15  8'You must attend a mandatory treatm-
+     A                                      ent program'
+     A                                 16  8'You will be required to use an ign-
+     A                                      ition interlock device for 6 months'
+     A                                 17  8'You will need to undergo a mandato-
+     A                                      ry medical evaluation '
+     A                                 19  1'Penalties for a BAC Over the Legal-
+     A                                       Limit, Refuse Testing or Impairmen-
+     A                                      t'
+     A                                 20  8'90-day licence suspension'
+     A                                 21  8'7-day vehicle impoundment'
+     A                                 22  8'$550 penalty (begins January 2019)-
+     A                                       and $275 licence reinstatement fee'
+
+
+
+     A*%%RS+<record-sequences>
+     A*%%RS+ <sequence name="Screen1">
+     A*%%RS+  <device type="display" width="80" height="24" />
+     A*%%RS+  <record-write record-format="GETINFO" />
+     A*%%RS+  <record-write record-format="SHOWRESULT" />
+     A*%%RS+ </sequence>
+     A*%%RS+ <sequence name="Screen2">
+     A*%%RS+  <device type="display" width="80" height="24" />
+     A*%%RS+  <record-write record-format="IMPDETAIL" />
+     A*%%RS+ </sequence>
+     A*%%RS </record-sequences> 

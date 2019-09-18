@@ -1,0 +1,35 @@
+             PGM
+             DCLF       LAB4DSP
+             DCL        &Security *Char 2
+                                        /***MAIN LINE***/
+             SndRcvf
+             DoWhile    (&In03 = '0')
+
+   Select
+      When       (&Option = '1' *or &option='01') CallSubr OPTION1
+      Otherwise  ChgVar &in30 '1'
+   EndSelect
+
+
+
+
+   SndRcvf
+Enddo
+                                       /***SUBROUTINES***/
+
+SUBR       OPTION1
+   RtvSysVal  SYSVAL(QSecurity) RTNVAR(&Security)
+   Select
+      When       (&Security = '10') ChgVar &MsgTxt ('Security Level is 10 and not supported')
+      When       (&Security = '20') ChgVar &MsgTxt ('Password security only at level' *Bcat +
+                   &Security)
+      When       (&Security = '30') ChgVar &MsgTxt ('Password and object security at level 30')
+      When       (&Security = '40') ChgVar &MsgTxt ('Password, object, and operating system +
+                   integrity at level 40')
+      When       (&Security = '50') ChgVar &MsgTxt1 ('Password, object, and enchanced +
+                   operating integrity at level 50')
+   EndSelect
+EndSubr
+ENDPGM
+
+ 

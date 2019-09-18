@@ -1,0 +1,59 @@
+     A          R TITLE
+     A                                  1  2DATE
+     A                                      EDTCDE(Y)
+     A                                  1 12TIME
+     A                                  1 96PAGNBR
+     A                                  2  2'Name: Olga Rudina'
+     A                                  1 91'Page:'
+     A                                  1 47'Weekly Payroll Report'
+     A          R COLHDG                    SPACEB(1)
+     A                                     6'Employee'
+     A                                      SPACEB(3)
+     A                                    19'Work'
+     A                                    29'Pay'
+     A                                    37'Hourly'
+     A                                    48'Hours'
+     A                                    60'Regular'
+     A                                    75'Overtime'
+     A                                    90'Total'
+     A                                     7'Number'
+     A                                      SPACEB(1)
+     A                                    19'Shift'
+     A                                    29'Grade'
+     A                                    37'Rate'
+     A                                    48'Worked'
+     A                                    62'Pay'
+     A                                    77'Pay'
+     A                                    91'Pay'
+     A          R EMPDETAIL                 SPACEB(1)
+     A            EMPNUM    R              5SPACEB(1)
+     A                                      REFFLD(ALLSHIFT/EMPNUM SENECAPAY/AL-
+     A                                      LSHIFT)
+     A                                      EDTWRD('0  -   -   ')
+     A            WORKSHIFT R             21
+     A                                      REFFLD(ALLSHIFT/WORKSHIFT +
+     A                                      SENECAPAY/ALLSHIFT)
+     A            PAYGRADE  R             30REFFLD(ALLSHIFT/PAYGRADE +
+     A                                      SENECAPAY/ALLSHIFT)
+     A            HRSWORKED R             48REFFLD(ALLSHIFT/HRSWORKED +
+     A                                      SENECAPAY/ALLSHIFT)
+     A                                      EDTCDE(2)
+     A            HOURLYRATE     5  2     37EDTCDE(2)
+     A            REGULARPAY     7  2     59EDTCDE(2)
+     A            OVERPAY        7  2     74EDTCDE(2)
+     A            WEEKLYPAY      7  2     89EDTCDE(2)
+     A          R TOTALS                    SPACEB(3)
+     A                                    37'Totals: '
+     A            TOTREGPAY      9  2     53EDTCDE(1 $)
+     A            TOTOVTPAY      9  2     69EDTCDE(1 $)
+     A            TOTWKPAY       9  2     85EDTCDE(1 $)
+
+     A*%%RS+<record-sequences>
+     A*%%RS+ <sequence name="REPORT1">
+     A*%%RS+  <device type="printer" width="132" height="66" />
+     A*%%RS+  <record-write record-format="TITLE" />
+     A*%%RS+  <record-write record-format="COLHDG" />
+     A*%%RS+  <record-write record-format="EMPDETAIL" />
+     A*%%RS+  <record-write record-format="TOTALS" />
+     A*%%RS+ </sequence>
+     A*%%RS </record-sequences> 

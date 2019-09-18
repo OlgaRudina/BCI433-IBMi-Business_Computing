@@ -1,0 +1,31 @@
+     A          R RECORD1
+     A                                  3  2'Olga Rudina'
+     A                                  2  2USER
+     A                                  2 20'S E N E C A  Payroll  Program  Com-
+     A                                      pleted'
+     A                                  2 68DATE
+     A                                      EDTCDE(Y)
+     A                                  3 68TIME
+     A                                  5 11'Rates:'
+     A                                  6 25'Day Rate:'
+     A                                  7 25'Afternoon  Rate:'
+     A                                  8 25'Night Rate:'
+     A                                 13 11'Totals:'
+     A                                 14 25'Regular Pay:'
+     A                                 15 25'Overtime Pay:'
+     A                                 16 25'Company Payout:'
+     A            DAYRATE            B  6 45
+     A                                      EDTCDE(1)
+     A                                      DSPATR(PR)
+     A            AFTNRATE           B  7 45
+     A                                      EDTCDE(1)
+     A                                      DSPATR(PR)
+     A            NIGHTRATE          B  8 45
+     A                                      EDTCDE(1)
+     A                                      DSPATR(PR)
+     A            TOTREGPAY      9Y 2O 14 45
+     A                                      EDTCDE(1 $)
+     A            TOTOVTPAY      9Y 2O 15 45EDTCDE(1 $)
+     A            TOTWKPAY       9Y 2O 16 45EDTCDE(1 $)
+
+ 

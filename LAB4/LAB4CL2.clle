@@ -1,0 +1,92 @@
+             PGM
+             DCLF       LAB4DSP
+             DCL        VAR(&MAXATT) TYPE(*Char) LEN(6)
+             DCL        VAR(&MESS) TYPE(*Char) LEN(10)
+             DCL        VAR(&AJOB) TYPE(*Dec) LEN(5)
+             DCL        VAR(&PREVU) TYPE(*Char) LEN(13)
+             DCL        VAR(&USERN) TYPE(*Char) LEN(10)
+                                        /***MAIN LINE***/
+             SndRcvf
+             DoWhile    (&In03 = '0')
+
+                Select
+                   When       (&Option = '1' *or &option='01') CallSubr OPTION1
+                   When       (&Option = '2' *or &option='02') CallSubr OPTION2
+                   When       (&Option = '3' *or &option='03') CallSubr OPTION3
+                   When       (&Option = '4' *or &option='04') CallSubr OPTION4
+                   When       (&Option = '5' *or &option='05') CallSubr OPTION5
+                   Otherwise  ChgVar &in30 '1'
+                EndSelect
+
+                SndRcvf
+                ChgVar     &in30 '0'
+                ChgVar     &MSGTXT1 (' ')
+                ChgVar     &MSGTXT2 (' ')
+
+                IF         (&In21   = '1') THEN(CALL QUSCMDLN)
+             Enddo
+
+
+
+                                       /***SUBROUTINES***/
+
+             SUBR       OPTION1
+                CHGCURLIB  BCI433LIB
+                DSPLIBL
+                CALL       TICKETRPG2
+                CHGCURLIB  WS433A16
+                DSPLIBL
+                ChgVar     &MSGTXT1 ('The Instructor Version of the Ticket RPGLE program was +
+                             run')
+                ChgVar     &MSGTXT2 (' CLLE Programs can manage how an RPGLE Business +
+                             Application is run')
+             EndSubr
+
+
+             SUBR       OPTION2
+                RTVSYSVAL  SYSVAL(QMAXSIGN) RTNVAR(&MAXATT)
+                ChgVar     &MSGTXT1 ('Maximum invalid signons allowed:  ' *CAT &MAXATT *CAT +
+                             '(tries)')
+                ChgVar     &MSGTXT2 ('CLLE Programs can report on the system and manage system +
+                             wide settings')
+
+             EndSubr
+
+             SUBR       OPTION3
+
+                RTVJOBA    OUTQ(&MESS)
+                ChgVar     &MSGTXT1 ('Signed on User''s message queue is '  *cat 'QUSRSYS/' +
+                             *cat &MESS)
+
+                ChgVar     &MSGTXT2 ('CLLE Programs can report on and manage the users on the +
+                             system')
+             EndSubr
+
+             SUBR       OPTION4
+                RTVSYSVAL  SYSVAL(QACTJOB) RTNVAR(&AJOB)
+                ChgVar     &MSGTXT1 ('Initial number of active jobs for which storage is +
+                             allocated is: ' *CAT  %CHAR(&AJOB))
+                ChgVar     &MSGTXT2 ('CLLE Programs can report on the system and manage system +
+                             wide settings')
+             EndSubr
+
+             SUBR       OPTION5
+                RTVUSRPRF  PRVSIGN(&PREVU)
+                RTVUSRPRF  USRPRF(*CURRENT)  RTNUSRPRF(&USERN)
+
+                ChgVar     &MSGTXT1 ('Initial number of active jobs for which storage is +
+                             allocated is: ' *Bcat &USERN)
+                ChgVar     &MSGTXT1 (&MSGTXT1 *Bcat ' was on ')
+                ChgVar     &MSGTXT1 (&MSGTXT1 *Bcat ' ' *Bcat %SST(&PREVU 2 2) || '/')
+                ChgVar     &MSGTXT1 (&MSGTXT1 *tcat %SST(&PREVU 4 2) || '/')
+                ChgVar     &MSGTXT1 (&MSGTXT1 *tcat %SST(&PREVU 6 2) || ' ')
+                ChgVar     &MSGTXT1 (&MSGTXT1 *Bcat ' ' *Bcat %SST(&PREVU 8 2) || ':')
+                ChgVar     &MSGTXT1 (&MSGTXT1 *Tcat %SST(&PREVU 10 2) || ':')
+                ChgVar     &MSGTXT1 (&MSGTXT1 *Tcat %SST(&PREVU 12 2))
+                ChgVar     &MSGTXT2 ('CLLE Programs can report on and manage the users on the +
+                             system')
+             EndSubr
+
+             ENDPGM
+
+ 
